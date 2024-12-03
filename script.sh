@@ -49,3 +49,10 @@ sudo systemctl enable jenkins
 
 # Start Jenkins service
 sudo systemctl start jenkins
+
+apt-get install -y docker.io
+systemctl start docker
+systemctl enable docker
+usermod -aG docker ubuntu
+docker pull nginx
+docker run -d --name nginx-container -p 80:80 nginx
